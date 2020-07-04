@@ -1,0 +1,40 @@
+<nav class="d-flex justify-content-end">
+  <ul class="pagination">
+    <li class="page-item" [ngClass]="{disabled: selectedPage === 0}" *ngIf="pagingArray.length > 1">
+      <a class="page-link" (click)="selectPage(selectedPage - 1)">Previous</a>
+    </li>
+    <ng-container *ngIf="pagingArray.length < 6; else largeContent">
+      <li *ngFor="let page of pagingArray" [ngClass]="{active: selectedPage === page}" class="page-item">
+        <a class="page-link" (click)="selectPage(page)"
+        >{{page + 1}}</a>
+      </li>
+    </ng-container>
+    <ng-template #largeContent>
+      <li class="page-item" *ngIf="selectedPage > 0">
+        <a class="page-link" (click)="selectPage(0)">{{1}}</a>
+      </li>
+      <li class="page-item disabled" *ngIf="selectedPage > 2">
+        <a class="page-link">...</a>
+      </li>
+      <li class="page-item" *ngIf="selectedPage > 1">
+        <a class="page-link" (click)="selectPage(selectedPage - 1)">{{selectedPage}}</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link" (click)="selectPage(selectedPage)">{{selectedPage + 1}}</a>
+      </li>
+      <li class="page-item" *ngIf="selectedPage < pagingArray.length - 2">
+        <a class="page-link" (click)="selectPage(selectedPage + 1)">{{selectedPage + 2}}</a>
+      </li>
+      <li class="page-item disabled" *ngIf="selectedPage < pagingArray.length - 3">
+        <a class="page-link">...</a>
+      </li>
+      <li class="page-item" *ngIf="selectedPage < pagingArray.length - 1">
+        <a class="page-link" (click)="selectPage(pagingArray.length - 1)">{{pagingArray.length}}</a>
+      </li>
+    </ng-template>
+    <li class="page-item" [ngClass]="{disabled: selectedPage === pagingArray.length - 1}"
+        *ngIf="pagingArray.length > 1">
+      <a class="page-link" (click)="selectPage(selectedPage + 1)">Next</a>
+    </li>
+  </ul>
+</nav>
