@@ -1,5 +1,9 @@
 # Pagination
 
+#screenshot
+
+![alt text](https://github.com/erikmesropyan/pagination/blob/master/Screenshot.png?raw=true)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
 ## Development server

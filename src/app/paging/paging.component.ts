@@ -15,7 +15,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 export class PagingComponent implements OnInit, ControlValueAccessor {
 
   public pagingArray = [];
-  public selectedPage = -1;
+  public selectedPage = 0;
 
 
   @Input('totalPageCount') set totalPageCount(value: any) {
